@@ -1,0 +1,9 @@
+
+\usepackage{dashbox}
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\\[0.5em]\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}\\[0.5em] % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\note}[1]{ % Defines the problem answer command with the content as the only argument
+\\[0.5em]\noindent\dashbox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}\\[0.5em] % Makes the box around the problem answer and puts the content inside
+}
