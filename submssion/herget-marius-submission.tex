@@ -3,6 +3,10 @@
 \newcommand{\hmwkTitle}{} % Assignment title
 \newcommand{\hmwkClass}{Submission for PhD position in computational social sciences at ETH Zürich} % Course/class
 \newcommand{\hmwkAuthorName}{Marius Herget} % Your name
+\usepackage{booktabs}
+\usepackage[toc,page]{appendix}
+\usepackage{rotating}
+\usepackage{pdflscape}
 
 
 \usepackage[defernumbers=true,style=numeric,backend=biber,]{biblatex}
@@ -20,16 +24,17 @@
 % }
 %
 \begin{homeworkProblem}
-  My first experience with research was within my practical training for my B.Sc. employer at the IBM Almaden Research Center in 2016. I experienced first hand the enthusiasm of the scientist in asking and pursuing groundbreaking questions. After these three months, I decided to follow my inner craving to change the world. Especially the scientific approach with no prejudices, religion, or political agenda matches my inner conviction of just listening to facts. These experiences convinced me to achieve the highest university degree.\\
+    My first experience with research was within my practical training for my B.Sc. employer at the IBM Almaden Research Center in 2016. I experienced first hand the enthusiasm of the scientist in asking and pursuing groundbreaking questions. After these three months, I decided to follow my inner craving to change the world. Especially the scientific approach with no prejudices, religion, or political agenda matches my inner conviction of just listening to facts. These experiences convinced me to achieve the highest university degree. Within my life so far, I always set myself the standard to obtain and deliver the best possible outcome. Consequently, I would like to continue my career at one of the best universities in Europe. \\
 
-  Within my life so far, I always set myself the standard to obtain and deliver the best possible outcome. Nevertheless, I \dots. \\
-
-  My ambitions for my Ph.D. position is a mix of a great team and flexibility. Exploring new areas, receiving founded advice, and the willingness to surpass oneself should be the daily business. Nevertheless, the essential aspect of any future career step is the working environment. The personal and professional climate has to be friendly and giving me a strong impetus. Research wise I am very open-minded where the journey goes. I love the challenge of familiarizing myself with new facts and theories.
+    My ambitions for my Ph.D. position is a mix of a great team and flexibility. Exploring new areas, receiving founded advice, and the willingness to surpass oneself should be the daily business. Nevertheless, the essential aspect of any future career step is the working environment. The personal and professional climate has to be friendly and giving me a strong impetus. Research wise I am very open-minded where the journey goes. I love the challenge of familiarizing myself with new facts and theories.
 \end{homeworkProblem}
 
 \begin{homeworkProblem}
-  test
+  As already mentioned in my motivation letter, I think my technical skills are a perfect match for your team. The most exciting aspect is the practical implementation of various technologies (especially computational science) on social and political systems. These complex, traditional systems have a massive impact on society, and a critical analysis is crucial to regulate them.\\
+
+  Nevertheless, your chair is accomplishing quite exciting research in more detail \textit{multi-layered networks} and \textit{socio-technical systems}. The aspect of the data-driven analysis is an innovative approach with great potential. In more detail, the paper \textit{"Quantifying and suppressing ranking bias in a large citation network"}~\cite{Vaccario2017Aug} has aroused my interests. The recognized biases within papers ranking and, therefore, their "false" importance is an enormous disruption of an old standing tradition of the scientific world.\\
 \end{homeworkProblem}
+
 \begin{homeworkProblem}
   Since the dataset is limited to only one specific research field, I would like to ask the following research question as a base for my data analysis:\\
 
@@ -69,18 +74,39 @@
   % \begin{equations}
     % \begin{equation}
       \begin{align}
-      Importance_{Bill} & = (1.1 * \frac{CS_{other Party}}{CS_{All}} + 0.9 * \frac{CS_{own Party}}{CS_{All}}) * Normalized(CS_{Total}) \\
-      Importance_{Representative} & =  \frac{1}{2} * Normalized(\sum Money_{Individual}) + \frac{1}{2} * \frac{Periods~in~House}{4}\\
-      Importance & = \frac{1}{2} * Importance_{Representative} + \frac{1}{2} * \sum_{Sponsor = Individual} Importance_{Bill}
+      Imp_{Bill} & = (1.1 * \frac{CS_{other Party}}{CS_{all}} + 0.9 * \frac{CS_{own Party}}{CS_{All}}) * Normalized(CS_{Total})  \\
+      Imp_{Representative} & = \frac{1}{2} * Normalized(\sum Money_{Individual}) + \frac{1}{2} * \frac{Periods~in~House_{last~4}}{4}\\
+      Importance & = \frac{1}{2} * Imp_{Representative} + \frac{1}{2} * Normalized(\sum_{Sponsor = \newline Individual} Imp_{Bill})\\
     \end{align}
     % \end{equation}
   % \end{equations}
 
-To achieve the correct analysis, the given data had to be supplemented by \cite{ProPublica:bills} and \cite{ProPublica:expenses}.
+To achieve the correct analysis, the given data had to be supplemented by \cite{ProPublica:bills} and \cite{ProPublica:expenses}.\\
 
+\textbf{Edward R. Royce} is according to my analysis with a significant lead the most import member:
+\begin{description}[labelindent=1cm]
+  \item[Party] Republican
+  \item[Bills in 115] $33$
+  \item[Available Money] $7340372.91\$$
+  \item[In House of Representatives since] 1993
+  \item[Received cosponsorships] $1685$
+  \item[Given cosponsorships] $212$
+  \item[Cosponsorships from Democrats] $822$
+  \item[Cosponsorships from Republicans] $864$
+  \item[Importance$_{Representative}$] $0.713342$
+  \item[Importance$_{Bill}$] $4.292423$
+  \item[Importance] $0.856671$
+\end{description}
 \end{homeworkProblem}
 
-\newpage
 \addcontentsline{toc}{section}{References}
 \printbibliography
+
+\newpage
+\begin{landscape}
+  \begin{appendices}
+    \input{toptenmembers.tex}
+  \end{appendices}
+\end{landscape}
+
 \end{document}
