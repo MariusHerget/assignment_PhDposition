@@ -2,6 +2,7 @@
 /individuals_money.csv
 /*.xlsx
 .ipynb_checkpoints
+*.zip
 
 
 ## Core latex/pdflatex auxiliary files:
